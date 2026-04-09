@@ -52,12 +52,13 @@ jobs:
           cp bot-config.yml.example release/
           cp docker-compose.bot.yml release/
           cp build/bot/Dockerfile release/Dockerfile
+          cp DEPLOY.md release/
 
           cd release
           tar -czf ../tg-bot-v${{ inputs.version }}-linux-amd64.tar.gz \
-            tg-bot-linux-amd64 bot-config.yml.example docker-compose.bot.yml Dockerfile
+            tg-bot-linux-amd64 bot-config.yml.example docker-compose.bot.yml Dockerfile DEPLOY.md
           tar -czf ../tg-bot-v${{ inputs.version }}-linux-arm64.tar.gz \
-            tg-bot-linux-arm64 bot-config.yml.example docker-compose.bot.yml Dockerfile
+            tg-bot-linux-arm64 bot-config.yml.example docker-compose.bot.yml Dockerfile DEPLOY.md
 
       - name: Checkout build repo
         uses: actions/checkout@v4
